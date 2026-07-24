@@ -11,11 +11,16 @@ def main():
     client.load_system_host_keys()
 
     username = "admin"
-    key_filename = "./admin.ppk"
+    key_filename = "./admin.key"
 
     for host in hosts:
         print(f"Connecting to {host}...")
-        client.connect(hosts[host], username=username, key_filename=key_filename)
+        client.connect(
+            hosts[host],
+            username=username,
+            key_filename=key_filename,
+            disabled_algorithms={"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+        )
         print("Connected Established")
 
         # # Get running config and save to ./running-configs/
