@@ -10,12 +10,14 @@ def main():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.load_system_host_keys()
 
-    username = "admin"
-    key_filename = "./admin.ppk"
-
     for host in hosts:
         print(f"Connecting to {host}...")
-        client.connect(hosts[host], username=username, key_filename=key_filename)
+        client.connect(
+            hosts[host]["host"],
+            username=hosts[host]["username"],
+            key_filename=hosts[host]["key_file"],
+            disabled_algorithms=hosts[host]["disabled_algorithms"]
+        )
         print("Connected Established")
 
         # # Get running config and save to ./running-configs/

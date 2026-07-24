@@ -1,7 +1,37 @@
 {
-    "R0" : "172.31.146.1",
-    "R1" : "172.31.146.4",
-    "R2" : "172.31.146.5",
-    "S0" : "172.31.146.2",
-    "S1" : "172.31.146.3"
+    "R0" : {
+        "device_type": "cisco_ios",
+        "host":   "172.31.146.1",
+        "username": "admin",
+        "key_file": "./admin.key",
+        "disabled_algorithms": {"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+    },
+    "R1" : {
+        "device_type": "cisco_ios",
+        "host":   "172.31.146.4",
+        "username": "admin",
+        "key_file": "./admin.key",
+        "disabled_algorithms": {"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+    },
+    "R2" : {
+        "device_type": "cisco_ios",
+        "host":   "172.31.146.5",
+        "username": "admin",
+        "key_file": "./admin.key",
+        "disabled_algorithms": {"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+    },
+    "S0" : {
+        "device_type": "cisco_ios",
+        "host":   "172.31.146.2",
+        "username": "admin",
+        "key_file": "./admin.key",
+        "disabled_algorithms": {"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+    },
+    "S1" : {
+        "device_type": "cisco_ios",
+        "host":   "172.31.146.3",
+        "username": "admin",
+        "key_file": "./admin.key",
+        "disabled_algorithms": {"pubkeys": ["rsa-sha2-256", "rsa-sha2-512"]}
+    }
 }
