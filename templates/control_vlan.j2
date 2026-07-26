@@ -1,0 +1,8 @@
+vlan 101
+name control-data
+exit
+int gi0/1
+switchport access vlan 101
+int gi1/0
+switchport access vlan 101
+do wr

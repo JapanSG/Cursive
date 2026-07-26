@@ -1,0 +1,8 @@
+router ospf {{ pid }} vrf {{ vrf }}
+{% for network, wildcard, area in networks %}
+network {{ network }} {{ wildcard }} area {{ area }}
+{% endfor %}
+{% if default %}
+default-information originate
+{% endif %}
+do wr

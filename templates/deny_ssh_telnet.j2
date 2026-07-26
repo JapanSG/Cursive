@@ -1,0 +1,11 @@
+no ip access-list standard DENY-SSH-TELNET
+no ip access-list extended DENY-SSH-TELNET
+ip access-list standard DENY-SSH-TELNET
+{% for rule in permit_rules %}
+permit {{ rule.network }} {{ rule.wildcard }}
+{% endfor %}
+deny any log
+exit
+line vty 0 4
+access-class DENY-SSH-TELNET in vrf-also
+do wr

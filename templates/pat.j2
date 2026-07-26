@@ -1,0 +1,14 @@
+no ip access-list standard PAT-INSIDE
+ip access-list standard PAT-INSIDE
+{% for network in inside_networks %}
+permit {{ network }}
+{% endfor %}
+exit
+ip nat inside source list PAT-INSIDE interface {{ outside_interface }} vrf control-data overload
+int {{ outside_interface }}
+ip nat outside
+{% for inside_interface in inside_interfaces %}
+int {{ inside_interface }}
+ip nat inside
+{% endfor %}
+do wr
